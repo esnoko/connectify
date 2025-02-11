@@ -5,6 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/themeProvider";
 import Navbar from "@/components/navbar";
 import Sidebar from "@/components/Sidebar";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -49,6 +50,7 @@ export default function RootLayout({
                 </div>
               </main>
             </div>
+            <Toaster/>
           </ThemeProvider>
         </body>
       </html>
