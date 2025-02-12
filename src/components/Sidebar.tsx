@@ -14,10 +14,11 @@ async function Sidebar() {
 
   const user = await getUserByClerkId(authUser.id);
   if (!user) return null;
-  
+
   console.log(user);
-  return <div className="sticky top-20">
-     <Card>
+  return (
+    <div className="sticky top-20">
+      <Card>
         <CardContent className="pt-6">
           <div className="flex flex-col items-center text-center">
             <Link
@@ -34,7 +35,9 @@ async function Sidebar() {
               </div>
             </Link>
 
-            {user.bio && <p className="mt-3 text-sm text-muted-foreground">{user.bio}</p>}
+            {user.bio && (
+              <p className="mt-3 text-sm text-muted-foreground">{user.bio}</p>
+            )}
 
             <div className="w-full">
               <Separator className="my-4" />
@@ -60,7 +63,11 @@ async function Sidebar() {
               <div className="flex items-center text-muted-foreground">
                 <LinkIcon className="w-4 h-4 mr-2 shrink-0" />
                 {user.website ? (
-                  <a href={`${user.website}`} className="hover:underline truncate" target="_blank">
+                  <a
+                    href={`${user.website}`}
+                    className="hover:underline truncate"
+                    target="_blank"
+                  >
                     {user.website}
                   </a>
                 ) : (
@@ -71,7 +78,8 @@ async function Sidebar() {
           </div>
         </CardContent>
       </Card>
-  </div>;
+    </div>
+  );
 }
 
 export default Sidebar;
