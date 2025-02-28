@@ -70,7 +70,7 @@ export async function getRandomUsers() {
     const userId = await getDbUserid();
 
     if (!userId) return [];
-
+    
     // get 3 random users exclude ourselves & users that we already follow
     const randomUsers = await prisma.user.findMany({
       where: {
